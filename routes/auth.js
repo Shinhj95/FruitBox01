@@ -5,7 +5,7 @@ const User = require("../models/User");
 
 // 로그인 페이지
 router.get("/login", (req, res) => {
-    res.render("login", { error: null, success: req.query.success });
+    res.render("login", { error: null, success: req.query.success === "1"});
 });
 
 // 회원가입 페이지
