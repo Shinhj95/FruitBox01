@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('menu/nav') %>
+
+    <h1 class="title">🍓 과일 목록</h1>
+
+    <div class="container">
+
+        <% fruits.forEach(fruit => { %>
+
+            <div class="fruit-card">
+
+                <div class="emoji"><%= fruit.image %></div>
+                <h2><%= fruit.name %></h2>
+                <p><%= fruit.description %></p>
+                <span>₩<%= fruit.price %></span>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+</html>

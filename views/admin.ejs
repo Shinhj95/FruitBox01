@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('menu/nav') %>
+
+    <% if (error) { %>
+    <script>
+        showModal("<%= error %>");
+    </script>
+    <% } %>
+
+    <h1 class="title">🍎 관리자 페이지</h1>
+
+    <form class="add-form" method="POST" action="/admin/add">
+
+        <select name="image" required>
+            <option value="">🍎 카테고리 선택</option>
+            <option value="🍎">🍎 사과</option>
+            <option value="🍌">🍌 바나나</option>
+            <option value="🍇">🍇 포도</option>
+            <option value="🍊">🍊 오렌지</option>
+            <option value="🍓">🍓 딸기</option>
+            <option value="🫐">🫐 블루베리</option>
+            <option value="🍍">🍍 파인애플</option>
+            <option value="🍋">🍋 레몬</option>
+            <option value="🍉">🍉 수박</option>
+        </select>
+
+        <input name="name" placeholder="과일명">
+        <input name="price" placeholder="가격">
+        <input name="description" placeholder="설명">
+
+        <button>추가</button>
+
+    </form>
+
+    <div class="container">
+
+        <% fruits.forEach(fruit => { %>
+
+            <div class="fruit-card">
+
+                <div class="emoji"><%= fruit.image %></div>
+                <h2><%= fruit.name %></h2>
+                <p><%= fruit.description %></p>
+                <span>₩<%= fruit.price %></span>
+
+                <form method="POST" action="/admin/delete/<%= fruit._id %>">
+                    <button class="delete">삭제</button>
+                </form>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+</html>
