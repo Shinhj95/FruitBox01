@@ -11,19 +11,19 @@
 
     <%- include('menu/nav') %>
 
-    <% if (success) { %>
+    <% if (typeof success !== 'undefined' && success) { %>
     <script>
-        window.onload = () => {
+        window.addEventListener("load", () => {
             showModal("회원가입이 완료되었습니다!");
-        }
+        });
     </script>
     <% } %>
 
-    <% if (error) { %>
+    <% if (typeof error !== 'undefined' && error) { %>
     <script>
-        window.onload = () => {
-            showModal("<%= error %>");
-        }
+        window.addEventListener("load", () => {
+            showModal("<%- error %>");
+        });
     </script>
     <% } %>
 
