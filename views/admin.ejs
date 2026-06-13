@@ -13,7 +13,9 @@
 
     <% if (error) { %>
     <script>
-        showModal("<%= error %>");
+        window.onload = () => {
+            showModal("<%= error %>");
+        }
     </script>
     <% } %>
 
