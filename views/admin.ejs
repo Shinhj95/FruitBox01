@@ -11,11 +11,11 @@
 
     <%- include('menu/nav') %>
 
-    <% if (error) { %>
+    <% if (typeof error !== 'undefined' && error) { %>
     <script>
-        window.onload = () => {
-            showModal("<%= error %>");
-        }
+        window.addEventListener("load", () => {
+            showModal("<%- error %>");
+        });
     </script>
     <% } %>
 
