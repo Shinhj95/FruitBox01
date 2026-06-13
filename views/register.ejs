@@ -10,11 +10,11 @@
 
     <%- include('menu/nav') %>
 
-    <% if (error) { %>
+    <% if (typeof error !== 'undefined' && error) { %>
     <script>
-        window.onload = () => {
-            showModal("<%= error %>");
-        }
+        window.addEventListener("load", () => {
+            showModal("<%- error %>");
+        });
     </script>
     <% } %>
 
@@ -26,8 +26,8 @@
 
             <form method="POST" action="/auth/register">
 
-                <input name="username" placeholder="아이디" autocomplete="username">
-                <input type="password" name="password" placeholder="비밀번호" autocomplete="new-password">
+                <input name="username" placeholder="아이디" autocomplete="username" required>
+                <input type="password" name="password" placeholder="비밀번호" autocomplete="new-password" required>
                 <input type="password" name="passwordConfirm" placeholder="비밀번호 확인" autocomplete="new-password" required>
 
                 <button>회원가입</button>
